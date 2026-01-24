@@ -9,7 +9,7 @@ export const site = {
     {
       label: "LinkedIn",
       href: "https://www.linkedin.com/in/austinjclifton/",
-      icon: "/LinkedIn.svg",
+      icon: "/linkedIn.svg",
     },
     {
       label: "GitHub",
