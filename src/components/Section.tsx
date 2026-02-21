@@ -1,32 +1,41 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
+import { cn } from "@/lib/cn";
 
-interface SectionProps {
+type SectionProps = {
   id: string;
-  kicker: string;
-  title: string;
+  index: string; // "01." etc
+  title: string; // "About"
   children: ReactNode;
-}
+  className?: string;
+  /**
+   * If false, the section won't animate on scroll.
+   * Cards inside can still use .reveal-card.
+   */
+  reveal?: boolean;
+};
 
-export default function Section({ id, kicker, title, children }: SectionProps) {
+export default function Section({
+  id,
+  index,
+  title,
+  children,
+  className,
+  reveal = true,
+}: SectionProps) {
   return (
-    <section
-      id={id}
-      className="scroll-mt-20 lg:scroll-mt-20"
-    >
-      <div className="mb-6 sm:mb-8 flex flex-col gap-2 sm:flex-row sm:items-baseline sm:gap-4">
-        <span className="text-sm font-semibold text-[rgba(var(--accent),0.9)] whitespace-nowrap">
-          {kicker}
-        </span>
-
-        <div className="flex items-baseline gap-3 sm:gap-4 w-full">
-          <h2 className="text-3xl font-semibold tracking-tight font-serif-headline">
-            {title}
-          </h2>
-          <div className="h-px flex-1 bg-black/10" />
+    <section id={id} className={cn("scroll-mt-24", reveal && "reveal", className)}>
+      <div className="flex items-center gap-4">
+        <div className="flex items-baseline gap-3">
+          <span className="text-sm font-semibold tracking-widest opacity-80">
+            {index}
+          </span>
+          <h2 className="text-2xl font-semibold tracking-tight">{title}</h2>
         </div>
+
+        <div aria-hidden="true" className="h-px flex-1 bg-yellow-400/70" />
       </div>
 
-      {children}
+      <div className="mt-6">{children}</div>
     </section>
   );
 }

@@ -1,8 +1,59 @@
-export const site = {
+// src/content/site.ts
+
+export type NavSection = {
+  id: string;
+  label: string;
+};
+
+export type SocialLink = {
+  label: string;
+  href: string;
+  icon?: string;
+};
+
+export type Skill = {
+  name: string;
+  icon: string;
+};
+
+export type ExperienceItem = {
+  range: string;
+  role: string;
+  company: string;
+  icon?: string;
+  glow?: boolean;
+  bullets?: readonly string[];
+  tags: readonly string[];
+  techStack: readonly string[];
+};
+
+export type ProjectItem = {
+  name: string;
+  description: string;
+  href: string;
+  glow?: boolean;
+  tags: readonly string[];
+  techStack: readonly string[];
+};
+
+export type SiteContent = {
+  name: string;
+  title: string;
+  tagline: string;
+  email: string;
+  social: readonly SocialLink[];
+  nav: readonly NavSection[];
+  skillsJavaScript: readonly Skill[];
+  skillsOther: readonly Skill[];
+  experience: readonly ExperienceItem[];
+  projects: readonly ProjectItem[];
+};
+
+export const site: SiteContent = {
   name: "Austin Clifton",
   title: "Software Developer",
   tagline:
-    "I build accessible software across web and mobile platforms, with a focus on organized architecture, efficient performance, and real-world impact.",
+    "Born & raised in Rochester, NY.\nAvid golfer.\nDie-hard Buffalo Sabres fan.\nSometimes I'll code something...",
   email: "austinjclifton@proton.me",
 
   social: [
@@ -50,11 +101,12 @@ export const site = {
       role: "Bachelor of Science, Web and Mobile Computing",
       company: "Rochester Institute of Technology (RIT)",
       icon: "/rit.svg",
+      glow: true,
       bullets: [
-        "Pursuing a bachelor’s degree in Web and Mobile Computing, with a minor in Geographic Information Systems (GIS), focusing on software engineering, data structures and algorithms, database design, and systems programming."
+        "Pursuing a bachelor’s degree in Web and Mobile Computing, with a minor in Geographic Information Systems (GIS), focusing on software engineering, data structures and algorithms, database design, and systems programming.",
       ],
-      tags: ["Education", "Web and Mobile Computing", "Geographic Information Systems"],
-      techStack: []
+      tags: ["Active", "Education", "Web and Mobile Computing", "Geographic Information Systems"],
+      techStack: [],
     },
     {
       range: "May 2025 — Aug 2025",
@@ -66,7 +118,7 @@ export const site = {
         "Designed and implemented a new end-user license agreement (EULA) system.",
         "Improved accessibility support across the application, aligning features with WCAG 2.2 guidelines for assistive technologies.",
       ],
-      tags: ["Accessibility", "UI Engineering", "Client Applications"],
+      tags: ["Internship", "Accessibility", "UI Engineering", "Client Applications"],
       techStack: ["Swift", "BitBucket"],
     },
     {
@@ -79,7 +131,7 @@ export const site = {
         "Built a Node.js backend integrating OpenAI-powered responses with enterprise REST APIs.",
         "Connected Azure Databricks data sources to deliver dynamic, context-aware answers to employees.",
       ],
-      tags: ["Internal Tools", "AI Integration"],
+      tags: ["Internship", "Internal Tools", "AI Integration"],
       techStack: ["Node.js", "GitHub"],
     },
   ],
@@ -89,31 +141,32 @@ export const site = {
       name: "Beehive Monitoring System",
       description:
         "An end-to-end IoT system for monitoring beehive health, streaming temperature data from sensor-equipped hives to a web dashboard used by beekeepers to track hive conditions over time.",
-      href: "#",
-      tags: ["In Progress", "IoT"],
-      techStack: ["Next.js", "MySQL", "GitHub"],
-    },
-    {
-      name: "IceBox",
-      description:
-        "An iOS app that allows users to store, organize, and play audio files from their device. Built with SwiftUI and a strong focus on clean architecture, local persistence, and a polished playback experience.",
-      href: "#",
-      tags: ["iOS", "SwiftData", "Audio/Media"],
-      techStack: ["Swift"],
+      href: "https://github.com/austinjclifton/Asheville",
+      glow: true,
+      tags: ["Active", "IoT", "Real-Time Data Ingestion", "Data Visualization"],
+      techStack: ["Express.js", "Node.js", "React.js", "MySQL", "GitHub"],
     },
     {
       name: "PokerGame",
       description:
         "A secure multiplayer heads-up poker web application featuring user authentication, persistent game state, strict turn enforcement, and real-time chat.",
-      href: "#",
-      tags: ["Full Stack", "WebSockets",  "Multiplayer"],
-      techStack: ["React.js", "PHP", "MySQL"],
+      href: "https://github.com/austinjclifton/pokergame",
+      tags: ["Turn-Based Game", "WebSockets", "Multiplayer"],
+      techStack: ["React.js","Node.js", "PHP", "MySQL"],
+    },
+    {
+      name: "IceBox",
+      description:
+        "An iOS app that allows users to store, organize, and play audio files from their device. Built with SwiftUI and a strong focus on clean architecture, local persistence, and a polished playback experience.",
+      href: "#projects",
+      tags: ["iOS", "SwiftData", "Audio/Media"],
+      techStack: ["Swift"],
     },
     {
       name: "Foodie",
       description:
         "An interactive iOS app that integrates the Yelp API, enabling users to explore and filter restaurants based on cuisine, rating, distance, and personal preferences.",
-      href: "#",
+      href: "#projects",
       tags: ["iOS", "API Integration", "Location Services"],
       techStack: ["Swift"],
     },

@@ -7,6 +7,14 @@ const config: Config = {
       screens: {
         "900": "900px",
       },
+      colors: {
+        bg: "rgb(var(--bg) / <alpha-value>)",
+        panel: "rgb(var(--panel) / <alpha-value>)",
+        text: "rgb(var(--text) / <alpha-value>)",
+        muted: "rgb(var(--muted) / <alpha-value>)",
+        accent: "rgb(var(--accent) / <alpha-value>)",
+        danger: "rgb(var(--danger) / <alpha-value>)",
+      },
       boxShadow: {
         soft: "0 10px 30px rgba(0,0,0,0.35)",
       },

@@ -1,0 +1,310 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   Theme tokens
+   ========================================================================== */
+:root {
+  --masters-green: 10 46 28;
+  --masters-gold: 242 187 5;
+  --masters-red: 179 27 27;
+
+  --bg: var(--masters-green);
+  --panel: 14 60 36;
+
+  --text: 245 247 245;
+  --muted: 206 215 209;
+
+  --accent: var(--masters-gold);
+  --ring: var(--masters-gold);
+  --danger: var(--masters-red);
+
+  --border-speed: 8.1s;
+
+  --reveal-duration: 520ms;
+  --reveal-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --reveal-blur: 8px;
+  --reveal-y: 18px;
+  --reveal-y-card: 24px;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-anchor: none;
+}
+
+body {
+  color: rgb(var(--text));
+  background: rgb(var(--bg));
+  overflow-anchor: none;
+}
+
+/* Fonts (wired to next/font variables defined on <html class="...">) */
+html {
+  font-family: var(--font-body,
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      Segoe UI,
+      Roboto,
+      Arial,
+      sans-serif);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-headline,
+      ui-serif,
+      Georgia,
+      "Times New Roman",
+      Times,
+      serif);
+}
+
+::selection {
+  background: rgb(var(--accent) / 0.22);
+}
+
+/* ==========================================================================
+   Page-load intro
+   ========================================================================== */
+@keyframes introFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+    filter: blur(0px);
+  }
+}
+
+@keyframes accentSweep {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+.page-intro {
+  animation: introFadeUp 520ms ease-out both;
+}
+
+.page-sweep {
+  transform-origin: 0% 50%;
+  animation: accentSweep 650ms ease-out both;
+}
+
+/* ==========================================================================
+   Scroll reveal (no-flash)
+   ========================================================================== */
+.reveal,
+.reveal-card {
+  transition:
+    opacity var(--reveal-duration) var(--reveal-ease),
+    transform var(--reveal-duration) var(--reveal-ease),
+    filter var(--reveal-duration) var(--reveal-ease);
+  will-change: opacity, transform, filter;
+
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+html.js .reveal,
+html.js .reveal-card {
+  opacity: 0;
+  transform: translateY(var(--reveal-y));
+  filter: blur(var(--reveal-blur));
+}
+
+html.js .reveal-card {
+  transform: translateY(var(--reveal-y-card));
+}
+
+html.js .reveal.is-visible,
+html.js .reveal-card.is-visible {
+  opacity: 1;
+  transform: none;
+  filter: blur(0px);
+}
+
+.reveal-card {
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+/* ==========================================================================
+   Active nav line pulse
+   ========================================================================== */
+@keyframes accentPulse {
+
+  0%,
+  100% {
+    opacity: 0.65;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.nav-active-line {
+  animation: accentPulse 1.2s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   Animated border
+   ========================================================================== */
+@keyframes borderSweep {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 220% 50%;
+  }
+}
+
+.animated-border {
+  position: relative;
+  border-radius: 16px;
+}
+
+.animated-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  pointer-events: none;
+
+  background: linear-gradient(90deg,
+      rgb(255 255 255 / 0.55),
+      rgb(var(--accent) / 0.85),
+      rgb(255 255 255 / 0.35),
+      rgb(var(--accent) / 0.65),
+      rgb(255 255 255 / 0.55));
+  background-size: 220% 100%;
+  animation: borderSweep var(--border-speed) linear infinite;
+  opacity: 0.95;
+
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* ==========================================================================
+   Small targeted globals
+   ========================================================================== */
+@media (max-width: 639px) {
+  .tech-icon {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    scroll-margin-top: 1rem;
+  }
+}
+
+/* ==========================================================================
+   Tailwind utilities (project-specific)
+   ========================================================================== */
+@layer utilities {
+  .text-muted {
+    color: rgb(var(--muted));
+  }
+
+  .bg-panel {
+    background: rgb(var(--panel) / 0.72);
+  }
+
+  .ring-accent {
+    --tw-ring-color: rgb(var(--ring));
+  }
+
+  .glass {
+    background: rgb(var(--panel) / 0.62);
+    border: 1px solid rgb(255 255 255 / 0.10);
+    backdrop-filter: blur(10px);
+  }
+
+  .link {
+    @apply underline-offset-4 hover:underline;
+  }
+
+  .focus-ring {
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent;
+    --tw-ring-color: rgb(var(--ring));
+  }
+}
+
+/* ==========================================================================
+   Reduced motion
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  html.js .reveal,
+  html.js .reveal-card,
+  html.js .reveal.is-visible,
+  html.js .reveal-card.is-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+    will-change: auto !important;
+  }
+
+  .page-intro,
+  .page-sweep,
+  .nav-active-line,
+  .animated-border::before {
+    animation: none !important;
+  }
+}
+
+/* ==========================================================================
+   Animated border for "Active" tag pill
+   ========================================================================== */
+.tag-animated-border {
+  position: relative;
+  border-radius: 9999px;
+}
+
+.tag-animated-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  pointer-events: none;
+
+  background: linear-gradient(90deg,
+      rgb(255 255 255 / 0.55),
+      rgb(var(--accent) / 0.85),
+      rgb(255 255 255 / 0.35),
+      rgb(var(--accent) / 0.65),
+      rgb(255 255 255 / 0.55));
+  background-size: 220% 100%;
+  animation: borderSweep var(--border-speed) linear infinite;
+  opacity: 0.95;
+
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
