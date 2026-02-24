@@ -26,19 +26,12 @@ export default function Page() {
             <Section id="about" index="01." title="About">
               <div className="space-y-4 sm:space-y-6 text-muted leading-relaxed text-lg">
                 <p>
-                  I’m a software engineer focused on building organized,
+                  I’m a software developer focused on building secure and
                   reliable systems. Born and raised in Rochester, NY, I enjoy
                   working across the stack, from designing backend architecture
-                  and data models to implementing responsive, accessible UIs.
+                  and data models to implementing responsive and accessible UIs.
                 </p>
-
-                <p>
-                  My experience includes developing real-time multiplayer
-                  applications, IoT monitoring platforms, AI-powered chatbots,
-                  and media-focused mobile apps. I place a strong emphasis on
-                  maintainability, performance, and security in my work.
-                </p>
-
+                
                 <p>
                   I regularly work with web and mobile technologies and I’m
                   comfortable deploying, debugging, and maintaining these
@@ -46,10 +39,16 @@ export default function Page() {
                 </p>
 
                 <p>
-                  Beyond traditional software development, I’m interested in
-                  projects that connect software systems with the physical
-                  world, including sensor-based platforms and data
-                  visualization.
+                  My experience includes developing real-time multiplayer
+                  applications, IoT monitoring platforms, AI-powered chatbots,
+                  and media-focused mobile apps.
+                </p>
+
+                <p>
+                  Previously, I worked with Excellus BCBS to develop an AI-powered chatbot for
+                  internal teams and supported Xerox in building a client-facing application
+                  for print device and supply management. And I can't wait to see what's in store
+                  for the future!
                 </p>
 
                 <div className="pt-6 sm:pt-8 space-y-6 sm:space-y-8">
