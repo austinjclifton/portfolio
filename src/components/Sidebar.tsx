@@ -4,7 +4,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { cn } from "@/lib/cn";
-import { site, type NavSection, type SocialLink } from "@/content/site";
+import { site, type NavSection, type SocialLink } from "@/content/content";
 import { ACTIVE_SECTION_EVENT } from "@/utils/ScrollSpy";
 
 type SidebarProps = {
@@ -58,7 +58,9 @@ export default function Sidebar({
             <p className="mt-3 text-lg opacity-90">{title}</p>
           </div>
 
-          <p className="max-w-[28ch] text-base leading-6 opacity-80 whitespace-pre-line">{blurb}</p>
+          <p className="max-w-[28ch] text-base leading-6 opacity-80 whitespace-pre-line">
+            {blurb}
+          </p>
 
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
             {socials.map((s) => {
@@ -103,7 +105,7 @@ export default function Sidebar({
                         "h-5 w-px bg-yellow-400 transition-opacity duration-200",
                         isActive
                           ? "opacity-100"
-                          : "opacity-30 group-hover:opacity-70"
+                          : "opacity-30 group-hover:opacity-70",
                       )}
                     />
                     <span
@@ -111,7 +113,7 @@ export default function Sidebar({
                         "transition-opacity duration-200",
                         isActive
                           ? "opacity-100"
-                          : "opacity-70 group-hover:opacity-100"
+                          : "opacity-70 group-hover:opacity-100",
                       )}
                     >
                       {item.label}

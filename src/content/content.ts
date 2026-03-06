@@ -1,4 +1,4 @@
-// src/content/site.ts
+// src/content/content.ts
 
 export type NavSection = {
   id: string;
@@ -43,6 +43,8 @@ export type SiteContent = {
   email: string;
   social: readonly SocialLink[];
   nav: readonly NavSection[];
+  aboutParagraphs: readonly string[];
+  footerText: string;
   skillsJavaScript: readonly Skill[];
   skillsOther: readonly Skill[];
   experience: readonly ExperienceItem[];
@@ -53,7 +55,7 @@ export const site: SiteContent = {
   name: "Austin Clifton",
   title: "Software Developer",
   tagline:
-    "Born & raised in Rochester, NY.\nAvid golfer.\nDie-hard Buffalo Sabres fan.\nSometimes I'll code something...",
+    "Born & raised in Rochester, NY.\nAvid golfer.\nDie-hard Buffalo Sabres fan.\nAlways learning, always building.",
   email: "austinjclifton@proton.me",
 
   social: [
@@ -74,6 +76,15 @@ export const site: SiteContent = {
     { id: "experience", label: "Experience" },
     { id: "projects", label: "Projects" },
   ],
+
+  aboutParagraphs: [
+    "I'm a software developer with an interest in solving complex challenges. I enjoy working across the stack, from designing backend architecture and data models to implementing responsive and accessible UIs.",
+    "I regularly work with web and mobile technologies and I'm comfortable deploying, debugging, and maintaining these systems in production environments.",
+    "My experience includes developing real-time multiplayer applications, IoT monitoring platforms, AI-powered chatbots, macOS client applications, and media-focused mobile apps.",
+    "Previously, I worked with Excellus BCBS to develop an chatbot for internal teams, and supported Xerox in building a client-facing application for print device and supply management. I've personally worked with developing a variety of iOS applications as well as secure, RESTful web services and APIs.",
+  ],
+
+  footerText: "Built with Next.js + Tailwind. Deployed on Vercel.",
 
   skillsJavaScript: [
     { name: "React.js", icon: "/React.js.svg" },
@@ -103,9 +114,14 @@ export const site: SiteContent = {
       icon: "/rit.svg",
       glow: true,
       bullets: [
-        "Pursuing a bachelor’s degree in Web and Mobile Computing, with a minor in Geographic Information Systems (GIS), focusing on software engineering, data structures and algorithms, database design, and systems programming.",
+        "Pursuing a bachelor’s degree in Web and Mobile Computing, with a minor in Geographic Information Systems (GIS), focusing on application development, data structures and algorithms, database design, and systems programming.",
       ],
-      tags: ["Active", "Education", "Web and Mobile Computing", "Geographic Information Systems"],
+      tags: [
+        "Active",
+        "Education",
+        "Web and Mobile Computing",
+        "Geographic Information Systems",
+      ],
       techStack: [],
     },
     {
@@ -118,7 +134,12 @@ export const site: SiteContent = {
         "Designed and implemented a new end-user license agreement (EULA) system.",
         "Improved accessibility support across the application, aligning features with WCAG 2.2 guidelines for assistive technologies.",
       ],
-      tags: ["Internship", "Accessibility", "UI Engineering", "Client Applications"],
+      tags: [
+        "Internship",
+        "Accessibility",
+        "UI Engineering",
+        "Client Applications",
+      ],
       techStack: ["Swift", "BitBucket"],
     },
     {
@@ -150,9 +171,9 @@ export const site: SiteContent = {
       name: "PokerGame",
       description:
         "A secure multiplayer heads-up poker web application featuring user authentication, persistent game state, strict turn enforcement, and real-time chat.",
-      href: "https://github.com/austinjclifton/pokergame",
+      href: "https://pokergame.studio",
       tags: ["Turn-Based Game", "WebSockets", "Multiplayer"],
-      techStack: ["React.js","Node.js", "PHP", "MySQL"],
+      techStack: ["React.js", "Node.js", "PHP", "MySQL"],
     },
     {
       name: "IceBox",

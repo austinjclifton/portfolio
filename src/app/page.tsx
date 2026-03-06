@@ -4,7 +4,7 @@ import ExperienceCard from "@/components/ExperienceCard";
 import ProjectCard from "@/components/ProjectCard";
 import ScrollSpy from "@/utils/ScrollSpy";
 import RevealObserver from "@/utils/RevealObserver";
-import { site } from "@/content/site";
+import { site } from "@/content/content";
 
 export default function Page() {
   return (
@@ -25,31 +25,9 @@ export default function Page() {
 
             <Section id="about" index="01." title="About">
               <div className="space-y-4 sm:space-y-6 text-muted leading-relaxed text-lg">
-                <p>
-                  I’m a software developer focused on building secure and
-                  reliable systems. Born and raised in Rochester, NY, I enjoy
-                  working across the stack, from designing backend architecture
-                  and data models to implementing responsive and accessible UIs.
-                </p>
-                
-                <p>
-                  I regularly work with web and mobile technologies and I’m
-                  comfortable deploying, debugging, and maintaining these
-                  systems in production environments.
-                </p>
-
-                <p>
-                  My experience includes developing real-time multiplayer
-                  applications, IoT monitoring platforms, AI-powered chatbots,
-                  and media-focused mobile apps.
-                </p>
-
-                <p>
-                  Previously, I worked with Excellus BCBS to develop an AI-powered chatbot for
-                  internal teams and supported Xerox in building a client-facing application
-                  for print device and supply management. And I can't wait to see what's in store
-                  for the future!
-                </p>
+                {site.aboutParagraphs.map((paragraph, idx) => (
+                  <p key={`${idx}-${paragraph.slice(0, 24)}`}>{paragraph}</p>
+                ))}
 
                 <div className="pt-6 sm:pt-8 space-y-6 sm:space-y-8">
                   <div className="flex flex-wrap justify-center gap-6">
@@ -96,9 +74,15 @@ export default function Page() {
             </Section>
 
             <Section id="experience" index="02." title="Experience">
-              <div data-reveal-group="experience" className="space-y-3 sm:space-y-4">
+              <div
+                data-reveal-group="experience"
+                className="space-y-3 sm:space-y-4"
+              >
                 {site.experience.map((job) => (
-                  <ExperienceCard key={`${job.company}-${job.range}`} job={job} />
+                  <ExperienceCard
+                    key={`${job.company}-${job.range}`}
+                    job={job}
+                  />
                 ))}
               </div>
             </Section>
@@ -112,7 +96,7 @@ export default function Page() {
             </Section>
 
             <footer className="pt-6 sm:pt-8 text-sm text-muted">
-              Built with Next.js + Tailwind. Deployed on Vercel.
+              {site.footerText}
             </footer>
           </main>
         </div>
