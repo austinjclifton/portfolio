@@ -176,7 +176,7 @@ export const site: SiteContent = {
       techStack: ["React.js", "Node.js", "PHP", "MySQL"],
     },
     {
-      name: "IceBox",
+      name: "TrackVault",
       description:
         "An iOS app that allows users to store, organize, and play audio files from their device. Built with SwiftUI and a strong focus on clean architecture, local persistence, and a polished playback experience.",
       href: "#projects",
