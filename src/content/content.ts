@@ -179,7 +179,7 @@ export const site: SiteContent = {
       name: "TrackVault",
       description:
         "An iOS app that allows users to store, organize, and play audio files from their device. Built with SwiftUI and a strong focus on clean architecture, local persistence, and a polished playback experience.",
-      href: "#projects",
+      href: "https://github.com/austinjclifton/TrackVault",
       tags: ["iOS", "SwiftData", "Audio/Media"],
       techStack: ["Swift"],
     },
@@ -187,7 +187,7 @@ export const site: SiteContent = {
       name: "Foodie",
       description:
         "An interactive iOS app that integrates the Yelp API, enabling users to explore and filter restaurants based on cuisine, rating, distance, and personal preferences.",
-      href: "#projects",
+      href: "https://github.com/austinjclifton/Foodie",
       tags: ["iOS", "API Integration", "Location Services"],
       techStack: ["Swift"],
     },
