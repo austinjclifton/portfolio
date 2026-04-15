@@ -162,7 +162,7 @@ export const site: SiteContent = {
       name: "Beehive Monitoring System",
       description:
         "An end-to-end IoT system for monitoring beehive health, streaming temperature data from sensor-equipped hives to a web dashboard used by beekeepers to track hive conditions over time.",
-      href: "https://github.com/austinjclifton/Asheville",
+      href: "https://asheville.webdev.gccis.rit.edu/",
       glow: true,
       tags: ["Active", "IoT", "Real-Time Data Ingestion", "Data Visualization"],
       techStack: ["Express.js", "Node.js", "React.js", "MySQL", "GitHub"],
@@ -179,7 +179,7 @@ export const site: SiteContent = {
       name: "TrackVault",
       description:
         "An iOS app that allows users to store, organize, and play audio files from their device. Built with SwiftUI and a strong focus on clean architecture, local persistence, and a polished playback experience.",
-      href: "https://github.com/austinjclifton/TrackVault",
+      href: "https://trackvault.vercel.app/",
       tags: ["iOS", "SwiftData", "Audio/Media"],
       techStack: ["Swift"],
     },
