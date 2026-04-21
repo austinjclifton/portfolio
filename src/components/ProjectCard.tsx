@@ -42,11 +42,11 @@ export default function ProjectCard({ project, className }: Props) {
       rel={rel}
       className={cn(
         "reveal-card",
-        "group glass block rounded-2xl p-4 sm:p-6 transition",
+        "group glass card-pop block rounded-2xl p-4 sm:p-6 transition",
         "focus-ring",
         "hover:bg-white/5",
         project.glow ? "animated-border" : null,
-        className
+        className,
       )}
     >
       <div className="flex items-start justify-between gap-3 sm:gap-4 min-w-0">
@@ -58,7 +58,7 @@ export default function ProjectCard({ project, className }: Props) {
           <span
             className={cn(
               "mt-1 flex-shrink-0 text-lg text-accent/90",
-              "opacity-0 transition-opacity group-hover:opacity-100"
+              "opacity-0 transition-opacity group-hover:opacity-100",
             )}
             aria-hidden
           >

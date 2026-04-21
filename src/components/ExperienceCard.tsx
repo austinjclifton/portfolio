@@ -36,11 +36,11 @@ export default function ExperienceCard({ job, className }: Props) {
       id={id}
       className={cn(
         "reveal-card",
-        "group glass rounded-2xl transition",
+        "group glass card-pop rounded-2xl transition",
         "p-4 sm:p-6",
         "hover:bg-white/5",
         job.glow ? "animated-border" : null,
-        className
+        className,
       )}
     >
       <header className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4">
