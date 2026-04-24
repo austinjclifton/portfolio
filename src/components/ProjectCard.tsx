@@ -42,15 +42,14 @@ export default function ProjectCard({ project, className }: Props) {
       rel={rel}
       className={cn(
         "reveal-card",
-        "group glass card-pop block rounded-2xl p-4 sm:p-6 transition",
+        "group glass card-pop block rounded-2xl p-4 sm:p-6",
         "focus-ring",
-        "hover:bg-white/5",
         project.glow ? "animated-border" : null,
         className,
       )}
     >
       <div className="flex items-start justify-between gap-3 sm:gap-4 min-w-0">
-        <h3 className="font-bold tracking-tight text-lg font-serif-display text-text min-w-0 truncate">
+        <h3 className="font-bold tracking-tight text-lg font-serif-display text-text min-w-0 truncate transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:text-accent/95 group-focus-visible:text-accent/95">
           {project.name}
         </h3>
 
@@ -58,7 +57,8 @@ export default function ProjectCard({ project, className }: Props) {
           <span
             className={cn(
               "mt-1 flex-shrink-0 text-lg text-accent/90",
-              "opacity-0 transition-opacity group-hover:opacity-100",
+              "translate-y-1 opacity-0 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+              "group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100",
             )}
             aria-hidden
           >
@@ -67,7 +67,7 @@ export default function ProjectCard({ project, className }: Props) {
         ) : null}
       </div>
 
-      <p className="mt-2 sm:mt-3 text-base leading-relaxed text-muted">
+      <p className="mt-2 sm:mt-3 text-base leading-relaxed text-muted transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:text-[rgb(var(--text))]/88 group-focus-visible:text-[rgb(var(--text))]/88">
         {project.description}
       </p>
 

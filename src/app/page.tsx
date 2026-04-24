@@ -5,6 +5,7 @@ import ProjectCard from "@/components/ProjectCard";
 import ScrollSpy from "@/utils/ScrollSpy";
 import RevealObserver from "@/utils/RevealObserver";
 import { site } from "@/content/content";
+import Image from "next/image";
 
 export default function Page() {
   return (
@@ -38,12 +39,14 @@ export default function Page() {
                         title={skill.name}
                       >
                         <div className="w-14 h-14 flex items-center justify-center tech-icon">
-                          <img
+                          <Image
                             src={skill.icon}
                             alt={skill.name}
+                            width={56}
+                            height={56}
+                            sizes="56px"
                             className="w-full h-full object-contain"
                             loading="lazy"
-                            decoding="async"
                           />
                         </div>
                       </div>
@@ -58,12 +61,14 @@ export default function Page() {
                         title={skill.name}
                       >
                         <div className="w-12 h-12 flex items-center justify-center tech-icon">
-                          <img
+                          <Image
                             src={skill.icon}
                             alt={skill.name}
+                            width={48}
+                            height={48}
+                            sizes="48px"
                             className="w-full h-full object-contain"
                             loading="lazy"
-                            decoding="async"
                           />
                         </div>
                       </div>

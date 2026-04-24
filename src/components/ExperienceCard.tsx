@@ -1,12 +1,12 @@
 import { cn } from "@/lib/cn";
 import TechStackRow from "@/components/TechStackRow";
 import TagRow from "@/components/TagRow";
+import Image from "next/image";
 
 export type Job = {
   range: string;
   role: string;
   company: string;
-  summary?: string;
   bullets?: readonly string[];
   tags: readonly string[];
   techStack: readonly string[];
@@ -36,9 +36,8 @@ export default function ExperienceCard({ job, className }: Props) {
       id={id}
       className={cn(
         "reveal-card",
-        "group glass card-pop rounded-2xl transition",
+        "group glass card-pop rounded-2xl",
         "p-4 sm:p-6",
-        "hover:bg-white/5",
         job.glow ? "animated-border" : null,
         className,
       )}
@@ -46,20 +45,22 @@ export default function ExperienceCard({ job, className }: Props) {
       <header className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4">
         <div className="flex items-center gap-3 min-w-0">
           {job.icon ? (
-            <img
+            <Image
               src={job.icon}
               alt={`${job.company} logo`}
+              width={28}
+              height={28}
+              sizes="28px"
               className="w-7 h-7 rounded-sm object-contain shrink-0"
               loading="lazy"
-              decoding="async"
             />
           ) : null}
 
           <div className="min-w-0">
-            <h3 className="font-semibold text-lg sm:text-2xl text-text truncate font-serif-display">
+            <h3 className="font-semibold text-lg sm:text-2xl text-text truncate font-serif-display transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:text-accent/95">
               {job.company}
             </h3>
-            <p className="text-sm sm:text-base font-medium text-muted">
+            <p className="text-sm sm:text-base font-medium text-muted transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:text-[rgb(var(--text))]/88">
               {job.role}
             </p>
           </div>
@@ -71,14 +72,8 @@ export default function ExperienceCard({ job, className }: Props) {
       </header>
 
       <div className="mt-3 sm:mt-4 space-y-3 sm:space-y-4">
-        {job.summary && !job.bullets?.length ? (
-          <p className="text-sm sm:text-base leading-relaxed text-muted">
-            {job.summary}
-          </p>
-        ) : null}
-
         {job.bullets?.length ? (
-          <ul className="space-y-2 pl-4 sm:pl-5 text-sm sm:text-base leading-relaxed text-muted list-disc">
+          <ul className="space-y-2 pl-4 sm:pl-5 text-sm sm:text-base leading-relaxed text-muted list-disc transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:text-[rgb(var(--text))]/88">
             {job.bullets.map((bullet, i) => (
               <li key={i}>{bullet}</li>
             ))}

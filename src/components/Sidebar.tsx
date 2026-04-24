@@ -29,11 +29,9 @@ export default function Sidebar({
   const items = useMemo(() => (sections ?? []).slice(), [sections]);
 
   const [activeId, setActiveId] = useState<string>(() => items[0]?.id ?? "");
-
-  useEffect(() => {
-    const first = items[0]?.id ?? "";
-    setActiveId((prev) => (items.some((s) => s.id === prev) ? prev : first));
-  }, [items]);
+  const visibleActiveId = items.some((s) => s.id === activeId)
+    ? activeId
+    : items[0]?.id ?? "";
 
   // ScrollSpy is still the long-term source of truth while scrolling.
   useEffect(() => {
@@ -86,7 +84,7 @@ export default function Sidebar({
         <nav aria-label="Section navigation" className="mt-10">
           <ul className="flex flex-col gap-6">
             {items.map((item) => {
-              const isActive = item.id === activeId;
+              const isActive = item.id === visibleActiveId;
 
               return (
                 <li key={item.id}>
