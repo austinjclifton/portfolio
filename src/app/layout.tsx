@@ -1,6 +1,7 @@
 // src/app/layout.tsx
 
 import "@/styles/globals.css";
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Merriweather, Public_Sans } from "next/font/google";
 
@@ -42,6 +43,7 @@ export default function RootLayout({
     <html lang="en" className={`js ${headline.variable} ${body.variable}`}>
       <body className="min-h-dvh antialiased bg-bg text-text font-sans">
         {children}
+        <Analytics />
       </body>
     </html>
   );
