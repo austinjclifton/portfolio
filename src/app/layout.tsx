@@ -2,6 +2,7 @@
 
 import "@/styles/globals.css";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { Merriweather, Public_Sans } from "next/font/google";
 
@@ -44,6 +45,7 @@ export default function RootLayout({
       <body className="min-h-dvh antialiased bg-bg text-text font-sans">
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
