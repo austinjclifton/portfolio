@@ -108,7 +108,7 @@ export const site: SiteContent = {
 
   experience: [
     {
-      range: "Aug 2021 — May 2026 (expected)",
+      range: "Aug 2021 — May 2026",
       role: "Bachelor of Science, Web and Mobile Computing",
       company: "Rochester Institute of Technology (RIT)",
       icon: "/rit.svg",
@@ -116,12 +116,7 @@ export const site: SiteContent = {
       bullets: [
         "Pursuing a bachelor’s degree in Web and Mobile Computing, with a minor in Geographic Information Systems (GIS), focusing on application development, data structures and algorithms, database design, and systems programming.",
       ],
-      tags: [
-        "Active",
-        "Education",
-        "Web and Mobile Computing",
-        "Geographic Information Systems",
-      ],
+      tags: ["Education", "Web and Mobile Computing", "Geographic Information Systems",],
       techStack: [],
     },
     {
@@ -159,12 +154,20 @@ export const site: SiteContent = {
 
   projects: [
     {
+      name: "World Cup Challenge",
+      description:
+        "An interactive web application for predicting World Cup match outcomes, streaming real-time data from various sources to a dynamic dashboard for users to track and analyze match statistics.",
+      href: "https://worldcupchallenge.live",
+      tags: ["Cloud Connectivity", "Real-Time Data Ingestion"],
+      techStack: ["Node.js", "React.js", "PostgreSQL", "AWS"],
+    },
+    {
       name: "Beehive Monitoring System",
       description:
         "An end-to-end IoT system for monitoring beehive health, streaming temperature data from sensor-equipped hives to a web dashboard used by beekeepers to track hive conditions over time.",
-      href: "https://asheville.webdev.gccis.rit.edu/",
-      glow: true,
-      tags: ["Active", "IoT", "Real-Time Data Ingestion", "Data Visualization"],
+      href: "https://beekeepr.live",
+      glow: false,
+      tags: ["IoT", "Real-Time Data Ingestion", "Data Visualization"],
       techStack: ["Express.js", "Node.js", "React.js", "MySQL", "GitHub"],
     },
     {
