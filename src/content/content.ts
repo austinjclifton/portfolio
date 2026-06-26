@@ -33,7 +33,9 @@ export type ProjectItem = {
   name: string;
   description: string;
   href: string;
+  linkLabel: "Live site" | "Source";
   glow?: boolean;
+  details: readonly string[];
   tags: readonly string[];
   techStack: readonly TechIconKey[];
 };
@@ -131,9 +133,9 @@ export const site: SiteContent = {
       company: "Xerox Corporation",
       icon: "/xerox.svg",
       bullets: [
-        "Worked on a macOS Swift client application delivering UI parity with a widely used legacy product.",
-        "Designed and implemented a new end-user license agreement (EULA) system.",
-        "Improved accessibility support across the application, aligning features with WCAG 2.2 guidelines for assistive technologies.",
+        "Implemented macOS Swift UI updates for a client application that needed parity with a widely used legacy product.",
+        "Built a new end-user license agreement (EULA) flow for presenting and accepting license terms inside the app.",
+        "Validated accessibility behavior against WCAG 2.2 expectations for assistive technology support.",
       ],
       tags: [
         "Internship",
@@ -149,9 +151,9 @@ export const site: SiteContent = {
       company: "Excellus BlueCross BlueShield",
       icon: "/bluecross.png",
       bullets: [
-        "Developed an internal Workday Q&A chatbot deployed as a Microsoft Teams application.",
-        "Built a Node.js backend integrating OpenAI-powered responses with enterprise REST APIs.",
-        "Connected Azure Databricks data sources to deliver dynamic, context-aware answers to employees.",
+        "Built an internal Workday Q&A chatbot deployed as a Microsoft Teams application.",
+        "Implemented a Node.js backend that connected OpenAI-powered responses with enterprise REST APIs.",
+        "Integrated Azure Databricks-backed data sources so answers could use dynamic internal context.",
       ],
       tags: ["Internship", "Internal Tools", "AI Integration"],
       techStack: ["Node.js", "GitHub"],
@@ -162,42 +164,67 @@ export const site: SiteContent = {
     {
       name: "World Cup Challenge",
       description:
-        "An interactive web application for predicting World Cup match outcomes, streaming real-time data from various sources to a dynamic dashboard for users to track and analyze match statistics.",
+        "A React and Node tournament prediction app that combines World Cup match data, standings, and persisted picks in a PostgreSQL-backed dashboard.",
       href: "https://worldcupchallenge.live",
-      tags: ["Cloud Connectivity", "Real-Time Data Ingestion"],
+      linkLabel: "Live site",
+      details: [
+        "Built prediction and results views around changing tournament data instead of static project content.",
+        "Used Node.js, PostgreSQL, and AWS in the stack to support ingestion, persistence, and deployment.",
+      ],
+      tags: ["Prediction Workflow", "Real-Time Data", "Cloud Deployment"],
       techStack: ["Node.js", "React.js", "PostgreSQL", "AWS"],
     },
     {
       name: "Beehive Monitoring System",
       description:
-        "An end-to-end IoT system for monitoring beehive health, streaming temperature data from sensor-equipped hives to a web dashboard used by beekeepers to track hive conditions over time.",
+        "A full-stack IoT monitoring app that streams sensor temperature readings into a MySQL-backed dashboard for reviewing hive conditions over time.",
       href: "https://beekeepr.live",
+      linkLabel: "Live site",
       glow: false,
-      tags: ["IoT", "Real-Time Data Ingestion", "Data Visualization"],
+      details: [
+        "Built an Express and Node API layer for receiving sensor readings and serving dashboard data.",
+        "Used MySQL-backed storage so time-based hive conditions could be reviewed after collection.",
+      ],
+      tags: ["IoT Monitoring", "Sensor Data", "Data Visualization"],
       techStack: ["Express.js", "Node.js", "React.js", "MySQL", "GitHub"],
     },
     {
       name: "PokerGame",
       description:
-        "A secure multiplayer heads-up poker web application featuring user authentication, persistent game state, strict turn enforcement, and real-time chat.",
+        "An authenticated heads-up poker web app with persistent game state, server-enforced turns, WebSocket updates, and real-time chat.",
       href: "https://pokergame.studio",
-      tags: ["Turn-Based Game", "WebSockets", "Multiplayer"],
+      linkLabel: "Live site",
+      details: [
+        "Implemented authentication, turn enforcement, and persistent state so multiplayer sessions had server-side rules.",
+        "Added WebSocket-based updates and chat for live table interaction.",
+      ],
+      tags: ["Authentication", "Persistent Game State", "WebSockets"],
       techStack: ["React.js", "Node.js", "PHP", "MySQL"],
     },
     {
       name: "TrackVault",
       description:
-        "An iOS app that allows users to store, organize, and play audio files from their device. Built with SwiftUI and a strong focus on clean architecture, local persistence, and a polished playback experience.",
+        "A SwiftUI iOS audio library for importing, organizing, storing, and playing local audio files with SwiftData-backed persistence.",
       href: "https://trackvault.vercel.app/",
-      tags: ["iOS", "SwiftData", "Audio/Media"],
+      linkLabel: "Live site",
+      details: [
+        "Built import, organization, and playback flows around audio files stored on-device.",
+        "Used local persistence to keep library state available between launches.",
+      ],
+      tags: ["iOS", "SwiftData", "Local Audio"],
       techStack: ["Swift"],
     },
     {
       name: "Foodie",
       description:
-        "An interactive iOS app that integrates the Yelp API, enabling users to explore and filter restaurants based on cuisine, rating, distance, and personal preferences.",
+        "A Swift iOS restaurant discovery app that integrates Yelp data with filtering by cuisine, rating, distance, and location preferences.",
       href: "https://github.com/austinjclifton/Foodie",
-      tags: ["iOS", "API Integration", "Location Services"],
+      linkLabel: "Source",
+      details: [
+        "Integrated Yelp API data into a native Swift search and filtering experience.",
+        "Combined cuisine, rating, distance, and location filters so results are driven by user context.",
+      ],
+      tags: ["iOS", "Yelp API", "Location Filters"],
       techStack: ["Swift"],
     },
   ],

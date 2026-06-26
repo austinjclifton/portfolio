@@ -3,15 +3,7 @@ import TechStackRow from "@/components/TechStackRow";
 import TagRow from "@/components/TagRow";
 import Image from "next/image";
 import type { ExperienceItem } from "@/content/content";
-
-function slugify(input: string) {
-  return input
-    .toLowerCase()
-    .trim()
-    .replace(/['"]/g, "")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-}
+import { slugify } from "@/lib/url";
 
 type Props = {
   job: ExperienceItem;
@@ -47,7 +39,7 @@ export default function ExperienceCard({ job, className }: Props) {
           ) : null}
 
           <div className="min-w-0">
-            <h3 className="font-semibold text-lg sm:text-2xl text-text truncate font-serif-display transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:text-accent/95">
+            <h3 className="font-semibold text-lg sm:text-2xl text-text truncate transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:text-accent/95">
               {job.company}
             </h3>
             <p className="text-sm sm:text-base font-medium text-muted transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:text-[rgb(var(--text))]/88">

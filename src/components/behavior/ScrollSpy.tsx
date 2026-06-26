@@ -1,4 +1,4 @@
-// src/utils/ScrollSpy.tsx
+// src/components/behavior/ScrollSpy.tsx
 
 "use client";
 
@@ -57,7 +57,7 @@ export default function ScrollSpy({
       if (lastIdRef.current !== bestId) {
         lastIdRef.current = bestId;
         window.dispatchEvent(
-          new CustomEvent<string>(ACTIVE_SECTION_EVENT, { detail: bestId })
+          new CustomEvent<string>(ACTIVE_SECTION_EVENT, { detail: bestId }),
         );
       }
     };

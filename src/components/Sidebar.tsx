@@ -2,32 +2,14 @@
 
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/cn";
-import { site, type NavSection, type SocialLink } from "@/content/content";
-import { ACTIVE_SECTION_EVENT } from "@/utils/ScrollSpy";
+import { site } from "@/content/content";
+import { ACTIVE_SECTION_EVENT } from "@/components/behavior/ScrollSpy";
+import { getExternalLinkProps } from "@/lib/url";
 
-type SidebarProps = {
-  name?: string;
-  title?: string;
-  blurb?: string;
-  socials?: readonly SocialLink[];
-  sections?: readonly NavSection[];
-};
-
-function isExternalHref(href: string) {
-  return href.startsWith("http://") || href.startsWith("https://");
-}
-
-export default function Sidebar({
-  name = site.name,
-  title = site.title,
-  blurb = site.tagline,
-  socials = site.social,
-  sections = site.nav,
-}: SidebarProps) {
-  const items = useMemo(() => (sections ?? []).slice(), [sections]);
-
+export default function Sidebar() {
+  const items = site.nav;
   const [activeId, setActiveId] = useState<string>(() => items[0]?.id ?? "");
   const visibleActiveId = items.some((s) => s.id === activeId)
     ? activeId
@@ -51,33 +33,32 @@ export default function Sidebar({
         <div className="space-y-4">
           <div>
             <h1 className="text-5xl font-bold leading-[0.95] tracking-tight">
-              {name}
+              {site.name}
             </h1>
-            <p className="mt-3 text-lg opacity-90">{title}</p>
+            <p className="mt-3 text-lg opacity-90">{site.title}</p>
           </div>
 
           <p className="max-w-[28ch] text-base leading-6 opacity-80 whitespace-pre-line">
-            {blurb}
+            {site.tagline}
           </p>
 
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-            {socials.map((s) => {
-              const external = isExternalHref(s.href);
-              const target = external ? "_blank" : undefined;
-              const rel = external ? "noopener noreferrer" : undefined;
-
-              return (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  target={target}
-                  rel={rel}
-                  className="text-base font-medium opacity-80 transition-opacity hover:opacity-100"
-                >
-                  {s.label}
-                </a>
-              );
-            })}
+            {site.social.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                {...getExternalLinkProps(s.href)}
+                className="text-base font-medium opacity-80 transition-opacity hover:opacity-100"
+              >
+                {s.label}
+              </a>
+            ))}
+            <a
+              href={`mailto:${site.email}`}
+              className="text-base font-medium opacity-80 transition-opacity hover:opacity-100"
+            >
+              Email
+            </a>
           </div>
         </div>
 

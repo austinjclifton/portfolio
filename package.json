@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "check": "npm run lint && npm run typecheck && npm run build",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css,mjs}\""
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css,mjs,yml,yaml}\""
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

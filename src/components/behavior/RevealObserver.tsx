@@ -16,7 +16,7 @@ function isInViewport(el: HTMLElement) {
 export default function RevealObserver() {
   useEffect(() => {
     const nodes = Array.from(
-      document.querySelectorAll<HTMLElement>(".reveal, .reveal-card")
+      document.querySelectorAll<HTMLElement>(".reveal, .reveal-card"),
     );
 
     if (!nodes.length) return;
@@ -29,11 +29,11 @@ export default function RevealObserver() {
 
     // Optional stagger: if a parent has data-reveal-group, stagger children .reveal-card
     const groups = Array.from(
-      document.querySelectorAll<HTMLElement>("[data-reveal-group]")
+      document.querySelectorAll<HTMLElement>("[data-reveal-group]"),
     );
     for (const group of groups) {
       const cards = Array.from(
-        group.querySelectorAll<HTMLElement>(".reveal-card")
+        group.querySelectorAll<HTMLElement>(".reveal-card"),
       );
       cards.forEach((el, i) => {
         el.style.setProperty("--reveal-delay", `${i * 60}ms`);
@@ -53,7 +53,7 @@ export default function RevealObserver() {
         root: null,
         threshold: 0.15,
         rootMargin: "0px 0px -10% 0px",
-      }
+      },
     );
 
     // IMPORTANT:

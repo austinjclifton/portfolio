@@ -2,15 +2,7 @@ import { cn } from "@/lib/cn";
 import TechStackRow from "@/components/TechStackRow";
 import TagRow from "@/components/TagRow";
 import type { ProjectItem } from "@/content/content";
-
-function slugify(input: string) {
-  return input
-    .toLowerCase()
-    .trim()
-    .replace(/['"]/g, "")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-}
+import { getExternalLinkProps, isExternalHref, slugify } from "@/lib/url";
 
 type Props = {
   project: ProjectItem;
@@ -20,18 +12,13 @@ type Props = {
 export default function ProjectCard({ project, className }: Props) {
   const id = `proj-${slugify(project.name)}`;
 
-  const isExternal =
-    project.href.startsWith("http://") || project.href.startsWith("https://");
-
-  const target = isExternal ? "_blank" : undefined;
-  const rel = isExternal ? "noopener noreferrer" : undefined;
+  const isExternal = isExternalHref(project.href);
 
   return (
     <a
       id={id}
       href={project.href}
-      target={target}
-      rel={rel}
+      {...getExternalLinkProps(project.href)}
       className={cn(
         "reveal-card",
         "group glass card-pop block rounded-2xl p-4 sm:p-6",
@@ -41,7 +28,7 @@ export default function ProjectCard({ project, className }: Props) {
       )}
     >
       <div className="flex items-start justify-between gap-3 sm:gap-4 min-w-0">
-        <h3 className="font-bold tracking-tight text-lg font-serif-display text-text min-w-0 truncate transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:text-accent/95 group-focus-visible:text-accent/95">
+        <h3 className="font-bold tracking-tight text-lg text-text min-w-0 truncate transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:text-accent/95 group-focus-visible:text-accent/95">
           {project.name}
         </h3>
 
@@ -62,6 +49,17 @@ export default function ProjectCard({ project, className }: Props) {
       <p className="mt-2 sm:mt-3 text-base leading-relaxed text-muted transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:text-[rgb(var(--text))]/88 group-focus-visible:text-[rgb(var(--text))]/88">
         {project.description}
       </p>
+
+      <ul className="mt-3 sm:mt-4 space-y-1.5 pl-4 text-sm leading-relaxed text-muted list-disc transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:text-[rgb(var(--text))]/88 group-focus-visible:text-[rgb(var(--text))]/88">
+        {project.details.map((detail) => (
+          <li key={detail}>{detail}</li>
+        ))}
+      </ul>
+
+      <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-accent/90">
+        {project.linkLabel}
+        {isExternal ? <span aria-hidden>↗</span> : null}
+      </span>
 
       <div className="mt-5 sm:mt-6 flex flex-wrap items-center gap-4 sm:gap-5">
         <TechStackRow stack={project.techStack} size={32} />

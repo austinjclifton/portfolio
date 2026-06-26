@@ -2,8 +2,8 @@ import Sidebar from "@/components/Sidebar";
 import Section from "@/components/Section";
 import ExperienceCard from "@/components/ExperienceCard";
 import ProjectCard from "@/components/ProjectCard";
-import ScrollSpy from "@/utils/ScrollSpy";
-import RevealObserver from "@/utils/RevealObserver";
+import ScrollSpy from "@/components/behavior/ScrollSpy";
+import RevealObserver from "@/components/behavior/RevealObserver";
 import { site } from "@/content/content";
 import Image from "next/image";
 
@@ -48,10 +48,10 @@ export default function Page() {
                     {site.skillsJavaScript.map((skill) => (
                       <div
                         key={skill.name}
-                        className="flex flex-col items-center"
+                        className="tech-icon flex flex-col items-center"
                         title={skill.name}
                       >
-                        <div className="w-14 h-14 flex items-center justify-center tech-icon">
+                        <div className="w-14 h-14 flex items-center justify-center">
                           <Image
                             src={skill.icon}
                             alt={skill.name}
@@ -70,10 +70,10 @@ export default function Page() {
                     {site.skillsOther.map((skill) => (
                       <div
                         key={skill.name}
-                        className="flex flex-col items-center"
+                        className="tech-icon flex flex-col items-center"
                         title={skill.name}
                       >
-                        <div className="w-12 h-12 flex items-center justify-center tech-icon">
+                        <div className="w-12 h-12 flex items-center justify-center">
                           <Image
                             src={skill.icon}
                             alt={skill.name}

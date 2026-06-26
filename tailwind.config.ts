@@ -5,9 +5,6 @@ const config: Config = {
   content: ["./src/**/*.{ts,tsx}"],
   theme: {
     extend: {
-      screens: {
-        "900": "900px",
-      },
       colors: {
         bg: "rgb(var(--bg) / <alpha-value>)",
         panel: "rgb(var(--panel) / <alpha-value>)",
@@ -18,11 +15,6 @@ const config: Config = {
       },
       boxShadow: {
         soft: "0 10px 30px rgba(0,0,0,0.35)",
-      },
-      fontFamily: {
-        "serif-display": ['"Playfair Display"', "serif"],
-        "serif-headline": ["Merriweather", "serif"],
-        "sans-body": ['"Public Sans"', "sans-serif"],
       },
     },
   },
