@@ -33,7 +33,7 @@ export type ProjectItem = {
   name: string;
   description: string;
   href: string;
-  linkLabel: "Live site" | "Source";
+  linkLabel: "Live site" | "Project site" | "Web demo" | "Source";
   glow?: boolean;
   details: readonly string[];
   tags: readonly string[];
@@ -57,9 +57,9 @@ export type SiteContent = {
 
 export const site: SiteContent = {
   name: "Austin Clifton",
-  title: "Software Developer",
+  title: "Full-Stack Software Engineer",
   tagline:
-    "Born & raised in Rochester, NY.\nAvid golfer.\nDie-hard Buffalo Sabres fan.\nAlways learning, always building.",
+    "Born & raised in Rochester, NY.\nAvid golfer.\nDie-hard Buffalo Sabres fan.",
   email: "austinjclifton@proton.me",
 
   social: [
@@ -85,7 +85,7 @@ export const site: SiteContent = {
     "I'm a software developer focused on building practical web and mobile applications. I enjoy working across the stack, from backend architecture and data models to responsive, accessible interfaces.",
     "I regularly work with web and mobile technologies and I'm comfortable deploying, debugging, and maintaining systems beyond the initial build.",
     "My experience includes developing real-time multiplayer applications, IoT monitoring platforms, AI-powered chatbots, macOS client applications, and media-focused mobile apps.",
-    "At Excellus BCBS, I helped build an internal Workday Q&A chatbot for Microsoft Teams. At Xerox, I supported a client-facing macOS application for print device and supply management. Outside those roles, I've built iOS applications and RESTful web services with an emphasis on maintainable implementation.",
+    "At Excellus BCBS, I built an internal Workday Q&A chatbot for Microsoft Teams. At Xerox, I contributed to a client-facing macOS application for print device and supply management. Outside those roles, I've built iOS applications and RESTful web services.",
   ],
 
   footerText: "Built with Next.js + Tailwind. Deployed on Vercel.",
@@ -133,9 +133,9 @@ export const site: SiteContent = {
       company: "Xerox Corporation",
       icon: "/xerox.svg",
       bullets: [
-        "Implemented macOS Swift UI updates for a client application that needed parity with a widely used legacy product.",
+        "Implemented macOS Swift UI updates for a client application that needed parity with a legacy product.",
         "Built a new end-user license agreement (EULA) flow for presenting and accepting license terms inside the app.",
-        "Validated accessibility behavior against WCAG 2.2 expectations for assistive technology support.",
+        "Improved accessibility behavior for macOS UI flows, with attention to WCAG 2.2 expectations and assistive-technology support.",
       ],
       tags: [
         "Internship",
@@ -183,7 +183,7 @@ export const site: SiteContent = {
       glow: false,
       details: [
         "Built an Express and Node API layer for receiving sensor readings and serving dashboard data.",
-        "Used MySQL-backed storage so time-based hive conditions could be reviewed after collection.",
+        "Stored readings with hive and timestamp context so the dashboard could review conditions over time.",
       ],
       tags: ["IoT Monitoring", "Sensor Data", "Data Visualization"],
       techStack: ["Express.js", "Node.js", "React.js", "MySQL", "GitHub"],
@@ -206,10 +206,10 @@ export const site: SiteContent = {
       description:
         "A SwiftUI iOS audio library for importing, organizing, storing, and playing local audio files with SwiftData-backed persistence.",
       href: "https://trackvault.vercel.app/",
-      linkLabel: "Live site",
+      linkLabel: "Project site",
       details: [
         "Built import, organization, and playback flows around audio files stored on-device.",
-        "Used local persistence to keep library state available between launches.",
+        "Kept import, library state, and playback concerns separated so the SwiftUI views stayed focused on presentation.",
       ],
       tags: ["iOS", "SwiftData", "Local Audio"],
       techStack: ["Swift"],
@@ -222,7 +222,7 @@ export const site: SiteContent = {
       linkLabel: "Source",
       details: [
         "Integrated Yelp API data into a native Swift search and filtering experience.",
-        "Combined cuisine, rating, distance, and location filters so results are driven by user context.",
+        "Connected Yelp search results to user-controlled filters for cuisine, rating, distance, and location.",
       ],
       tags: ["iOS", "Yelp API", "Location Filters"],
       techStack: ["Swift"],
