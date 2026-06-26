@@ -1,15 +1,7 @@
 import { cn } from "@/lib/cn";
 import TechStackRow from "@/components/TechStackRow";
 import TagRow from "@/components/TagRow";
-
-export type Project = {
-  name: string;
-  description: string;
-  href: string;
-  tags: readonly string[];
-  techStack: readonly string[];
-  glow?: boolean; // when true, apply animated border class
-};
+import type { ProjectItem } from "@/content/content";
 
 function slugify(input: string) {
   return input
@@ -21,7 +13,7 @@ function slugify(input: string) {
 }
 
 type Props = {
-  project: Project;
+  project: ProjectItem;
   className?: string;
 };
 

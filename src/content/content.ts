@@ -1,5 +1,7 @@
 // src/content/content.ts
 
+import type { TechIconKey } from "@/lib/techIcons";
+
 export type NavSection = {
   id: string;
   label: string;
@@ -12,8 +14,8 @@ export type SocialLink = {
 };
 
 export type Skill = {
-  name: string;
-  icon: string;
+  name: TechIconKey;
+  icon: `/${string}`;
 };
 
 export type ExperienceItem = {
@@ -24,7 +26,7 @@ export type ExperienceItem = {
   glow?: boolean;
   bullets?: readonly string[];
   tags: readonly string[];
-  techStack: readonly string[];
+  techStack: readonly TechIconKey[];
 };
 
 export type ProjectItem = {
@@ -33,7 +35,7 @@ export type ProjectItem = {
   href: string;
   glow?: boolean;
   tags: readonly string[];
-  techStack: readonly string[];
+  techStack: readonly TechIconKey[];
 };
 
 export type SiteContent = {
@@ -78,10 +80,10 @@ export const site: SiteContent = {
   ],
 
   aboutParagraphs: [
-    "I'm a software developer with an interest in solving complex challenges. I enjoy working across the stack, from designing backend architecture and data models to implementing responsive and accessible UIs.",
-    "I regularly work with web and mobile technologies and I'm comfortable deploying, debugging, and maintaining these systems in production environments.",
+    "I'm a software developer focused on building practical web and mobile applications. I enjoy working across the stack, from backend architecture and data models to responsive, accessible interfaces.",
+    "I regularly work with web and mobile technologies and I'm comfortable deploying, debugging, and maintaining systems beyond the initial build.",
     "My experience includes developing real-time multiplayer applications, IoT monitoring platforms, AI-powered chatbots, macOS client applications, and media-focused mobile apps.",
-    "Previously, I worked with Excellus BCBS to develop an chatbot for internal teams, and supported Xerox in building a client-facing application for print device and supply management. I've personally worked with developing a variety of iOS applications as well as secure, RESTful web services and APIs.",
+    "At Excellus BCBS, I helped build an internal Workday Q&A chatbot for Microsoft Teams. At Xerox, I supported a client-facing macOS application for print device and supply management. Outside those roles, I've built iOS applications and RESTful web services with an emphasis on maintainable implementation.",
   ],
 
   footerText: "Built with Next.js + Tailwind. Deployed on Vercel.",
@@ -114,9 +116,13 @@ export const site: SiteContent = {
       icon: "/rit.svg",
       glow: true,
       bullets: [
-        "Pursuing a bachelor’s degree in Web and Mobile Computing, with a minor in Geographic Information Systems (GIS), focusing on application development, data structures and algorithms, database design, and systems programming.",
+        "Completed a bachelor’s degree in Web and Mobile Computing with a minor in Geographic Information Systems (GIS), with coursework spanning application development, data structures and algorithms, database design, and systems programming.",
       ],
-      tags: ["Education", "Web and Mobile Computing", "Geographic Information Systems",],
+      tags: [
+        "Education",
+        "Web and Mobile Computing",
+        "Geographic Information Systems",
+      ],
       techStack: [],
     },
     {

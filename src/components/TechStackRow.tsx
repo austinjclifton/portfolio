@@ -1,12 +1,10 @@
-import { techIconMap } from "@/lib/techIcons";
+import { getTechIcon, type TechIconKey } from "@/lib/techIcons";
 import Image from "next/image";
 
 type Props = {
-  stack: readonly string[];
+  stack: readonly TechIconKey[];
   size?: number; // px size, default 32
 };
-
-const FALLBACK_ICON = techIconMap.TypeScript;
 
 export default function TechStackRow({ stack, size = 32 }: Props) {
   const px = Math.max(16, Math.min(64, Math.round(size)));
@@ -16,7 +14,7 @@ export default function TechStackRow({ stack, size = 32 }: Props) {
       {stack.map((tech, i) => (
         <Image
           key={`${tech}-${i}`}
-          src={techIconMap[tech] ?? FALLBACK_ICON}
+          src={getTechIcon(tech)}
           alt={tech}
           title={tech}
           width={px}

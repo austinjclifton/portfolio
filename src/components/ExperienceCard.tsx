@@ -2,17 +2,7 @@ import { cn } from "@/lib/cn";
 import TechStackRow from "@/components/TechStackRow";
 import TagRow from "@/components/TagRow";
 import Image from "next/image";
-
-export type Job = {
-  range: string;
-  role: string;
-  company: string;
-  bullets?: readonly string[];
-  tags: readonly string[];
-  techStack: readonly string[];
-  icon?: string;
-  glow?: boolean; // when true, apply animated border class
-};
+import type { ExperienceItem } from "@/content/content";
 
 function slugify(input: string) {
   return input
@@ -24,7 +14,7 @@ function slugify(input: string) {
 }
 
 type Props = {
-  job: Job;
+  job: ExperienceItem;
   className?: string;
 };
 

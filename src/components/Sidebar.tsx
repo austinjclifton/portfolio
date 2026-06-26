@@ -31,7 +31,7 @@ export default function Sidebar({
   const [activeId, setActiveId] = useState<string>(() => items[0]?.id ?? "");
   const visibleActiveId = items.some((s) => s.id === activeId)
     ? activeId
-    : items[0]?.id ?? "";
+    : (items[0]?.id ?? "");
 
   // ScrollSpy is still the long-term source of truth while scrolling.
   useEffect(() => {
@@ -46,7 +46,7 @@ export default function Sidebar({
   }, []);
 
   return (
-    <aside className="flex h-full flex-col">
+    <div className="flex h-full flex-col">
       <div className="sticky top-10">
         <div className="space-y-4">
           <div>
@@ -123,6 +123,6 @@ export default function Sidebar({
           </ul>
         </nav>
       </div>
-    </aside>
+    </div>
   );
 }

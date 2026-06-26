@@ -12,7 +12,17 @@ export default function Page() {
     <div className="flex flex-col lg:flex-row">
       <RevealObserver />
 
-      <aside className="w-full lg:w-[420px] lg:fixed lg:left-0 lg:top-0 lg:h-dvh lg:overflow-y-auto">
+      <a
+        href="#main-content"
+        className="focus-ring sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-panel focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-text"
+      >
+        Skip to main content
+      </a>
+
+      <aside
+        className="w-full lg:w-[420px] lg:fixed lg:left-0 lg:top-0 lg:h-dvh lg:overflow-y-auto"
+        aria-label="Profile and section navigation"
+      >
         <div className="px-6 sm:px-8 lg:px-12 py-8 sm:py-12 lg:py-16 page-intro">
           <div className="mb-6 h-[2px] w-full bg-accent/80 page-sweep" />
           <Sidebar />
@@ -21,7 +31,10 @@ export default function Page() {
 
       <div className="w-full lg:ml-[420px]">
         <div className="mx-auto w-full max-w-5xl px-6 sm:px-8 lg:px-12 py-8 sm:py-12 lg:py-20">
-          <main className="space-y-12 sm:space-y-16 md:space-y-20 page-intro">
+          <main
+            id="main-content"
+            className="space-y-12 sm:space-y-16 md:space-y-20 page-intro"
+          >
             <ScrollSpy sectionIds={site.nav.map((n) => n.id)} />
 
             <Section id="about" index="01." title="About">

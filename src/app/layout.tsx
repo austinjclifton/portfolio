@@ -23,12 +23,27 @@ const body = Public_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Austin Clifton's Portfolio",
-  description: "Portfolio",
+  title: {
+    default: "Austin Clifton | Software Developer",
+    template: "%s | Austin Clifton",
+  },
+  description:
+    "Software developer portfolio for Austin Clifton, featuring full-stack, mobile, IoT, and real-time application work.",
+  applicationName: "Austin Clifton Portfolio",
+  authors: [{ name: "Austin Clifton" }],
+  creator: "Austin Clifton",
   openGraph: {
-    title: "Austin Clifton's Portfolio",
-    description: "Portfolio",
+    title: "Austin Clifton | Software Developer",
+    description:
+      "Full-stack and mobile software portfolio featuring production-minded projects across web, iOS, IoT, and real-time systems.",
+    siteName: "Austin Clifton Portfolio",
     type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Austin Clifton | Software Developer",
+    description:
+      "Portfolio featuring full-stack, mobile, IoT, and real-time application work.",
   },
   icons: {
     icon: [{ url: "/a.png", type: "image/png" }],
